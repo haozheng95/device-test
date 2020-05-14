@@ -251,7 +251,7 @@ func main() {
 	flag.IntVar(&pulse, "pulse", 0, "time between health check polling in seconds.  Set to 0 to disable.")
 	// this is also needed to enable glog usage in dpm
 	flag.Parse()
-
+	glog.Infof("\n\n my test \n\n")
 	glog.Infof("AMD GPU device plugin for Kubernetes")
 	glog.Infof("%s version %s\n", os.Args[0], gitDescribe)
 
