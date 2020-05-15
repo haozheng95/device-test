@@ -125,6 +125,7 @@ func (p *Plugin) PreStartContainer(ctx context.Context, r *pluginapi.PreStartCon
 // Whenever a Device state change or a Device disappears, ListAndWatch
 // returns the new list
 func (p *Plugin) ListAndWatch(e *pluginapi.Empty, s pluginapi.DevicePlugin_ListAndWatchServer) error {
+	glog.Warningf("\n\n my test--------------- \n\n")
 	p.AMDGPUs = amdgpu.GetAMDGPUs()
 
 	devs := make([]*pluginapi.Device, len(p.AMDGPUs))
@@ -166,7 +167,7 @@ func (p *Plugin) Allocate(ctx context.Context, r *pluginapi.AllocateRequest) (*p
 	var response pluginapi.AllocateResponse
 	var car pluginapi.ContainerAllocateResponse
 	var dev *pluginapi.DeviceSpec
-	glog.Infof("Allocating device --------------   start")
+	glog.Warningf("Allocating device --------------   start")
 	for _, req := range r.ContainerRequests {
 		car = pluginapi.ContainerAllocateResponse{}
 

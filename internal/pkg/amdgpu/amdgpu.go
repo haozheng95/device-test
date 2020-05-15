@@ -91,6 +91,7 @@ func GetAMDGPUs() map[string]map[string]int {
 		return make(map[string]map[string]int)
 	}
 
+	glog.Warningf("amdgpu driver unavailable: ---------- test")
 	//ex: /sys/module/amdgpu/drivers/pci:amdgpu/0000:19:00.0
 	matches, _ := filepath.Glob("/sys/module/amdgpu/drivers/pci:amdgpu/[0-9a-fA-F][0-9a-fA-F][0-9a-fA-F][0-9a-fA-F]:*")
 
@@ -110,6 +111,7 @@ func GetAMDGPUs() map[string]map[string]int {
 			}
 		}
 	}
+	devices["/tmp/test"]["test1"] = 1
 	return devices
 }
 
